@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AnchorSpec Official Site
 
-## Getting Started
+This repository contains the public website for AnchorSpec. It is an introduction and documentation entry point, not the canonical specification repository.
 
-First, run the development server:
+Current site version: v0.1.1.
+
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The static export is generated in `out/`.
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This site is configured for GitHub Pages.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The workflow in `.github/workflows/deploy.yml` installs dependencies, builds the static site, uploads `out/`, and deploys it to GitHub Pages.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The production URL is controlled by `NEXT_PUBLIC_SITE_URL` during the GitHub Actions build. The default local fallback is:
 
-## Deploy on Vercel
+```text
+https://owner.github.io/AnchorSpec-web
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+When moving to a custom domain such as `https://anchorspec.com`, update the GitHub Actions environment value or set `NEXT_PUBLIC_SITE_URL` before running `npm run build`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Search Console
+
+To register the site with Google Search Console:
+
+1. Deploy the site to GitHub Pages.
+2. Open Google Search Console and add a URL-prefix property for the deployed GitHub Pages URL.
+3. Verify ownership using the HTML file method or another supported method.
+4. Submit the sitemap URL:
+
+```text
+https://owner.github.io/AnchorSpec-web/sitemap.xml
+```
+
+If a custom domain is used later, add the custom domain property and submit:
+
+```text
+https://anchorspec.com/sitemap.xml
+```
+
+Do not add `noindex`; the site is intended to be discoverable.
+
+## Canonical Specification URL
+
+The GitHub navigation link currently uses the placeholder:
+
+```text
+https://github.com/OWNER/AnchorSpec
+```
+
+Update `GITHUB_URL` in `components/site-header.tsx` when the canonical AnchorSpec specification repository URL is known.

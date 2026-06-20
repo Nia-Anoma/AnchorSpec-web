@@ -1,0 +1,26 @@
+
+
+.galleryPage {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 148px 40px 80px;
+}
+
+.galleryPage h1 {
+  margin: 12px 0 22px;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1;
+}
+
+.galleryPage > p:last-child {
+  color: #cbd5e1;
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+
+  .galleryPage {
+    padding: 170px 24px 72px;
+  }
+}
