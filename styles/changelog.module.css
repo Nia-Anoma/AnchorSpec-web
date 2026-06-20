@@ -388,3 +388,62 @@
     gap: 14px;
   }
 }
+
+@media (max-width: 768px) {
+  .changelogPage {
+    padding: 168px 20px 72px;
+  }
+
+  .changelogHero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .changelogHero h1 {
+    font-size: clamp(2.75rem, 13vw, 4.5rem);
+  }
+
+  .changelogVisual,
+  .changelogVisualFrame {
+    max-width: 100%;
+  }
+
+  .changelogSectionHeading,
+  .changelogNote {
+    min-width: 0;
+    gap: 14px;
+  }
+
+  .changelogSectionHeading h2,
+  .changelogNote h2 {
+    font-size: clamp(1.9rem, 9vw, 3rem);
+  }
+
+  .changelogItem {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .changelogCard,
+  .changelogDetails {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .changelogPage {
+    padding: 178px 16px 64px;
+  }
+
+  .changelogItem {
+    padding-left: 26px;
+  }
+
+  .changelogCard {
+    padding: 20px 16px;
+  }
+
+  .changelogSectionHeading > span,
+  .changelogNote > span {
+    display: none;
+  }
+}

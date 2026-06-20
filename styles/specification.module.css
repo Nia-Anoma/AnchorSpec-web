@@ -185,6 +185,7 @@
   color: #e2e8f0;
   padding: 10px 14px;
   font-weight: 700;
+  text-align: center;
 }
 
 .specChangeFlow b,
@@ -661,6 +662,7 @@
   border-radius: 8px;
   background: rgba(15, 23, 42, 0.48);
   padding: 28px;
+  text-align: center;
 }
 
 .specPrincipleCard h2 {
@@ -692,5 +694,140 @@
 
   .specHeroVisual {
     min-height: 46vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .specPage {
+    padding: 168px 0 64px;
+    overflow-x: hidden;
+  }
+
+  .specHero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .specTitle,
+  .specHero h1 {
+    font-size: clamp(2.35rem, 11vw, 4rem);
+    line-height: 1.08;
+  }
+
+  .specLead {
+    margin-top: 24px;
+    font-size: clamp(1rem, 4.8vw, 1.25rem);
+  }
+
+  .specHeroVisual {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    justify-content: center;
+  }
+
+  .specHeroVisual img {
+    width: min(80vw, 380px);
+    margin-inline: auto;
+  }
+
+  .specToc {
+    width: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .specSection,
+  .specSectionAlt {
+    padding: 64px 20px;
+  }
+
+  .specArchitectureHeading h2,
+  .specSectionHeading h2,
+  .specSpecLink h2 {
+    font-size: clamp(1.8rem, 9vw, 3rem);
+  }
+
+  .specPage .specProblemGrid,
+  .specPage .specConceptGrid,
+  .specPrincipleRow,
+  .specDiagramGrid,
+  .specCardGrid,
+  .specThreadLayout,
+  .specVerifyLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .specDiagramGrid {
+    gap: 24px;
+  }
+
+  .specDiagramPanel,
+  .specCard,
+  .specPrincipleCard {
+    min-width: 0;
+    padding: 22px 18px;
+  }
+
+  .specChangeFlow {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .specChangeFlow b {
+    text-align: center;
+    transform: rotate(90deg);
+  }
+
+  .specThreadTable > div {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+
+  .specSpecLink {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .specPage {
+    padding-top: 178px;
+  }
+
+  .specHero {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .specHeroVisual {
+    min-height: 240px;
+  }
+
+  .specToc {
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+
+  .specSection,
+  .specSectionAlt {
+    padding: 56px 16px;
+  }
+
+  .specSectionHeading {
+    gap: 12px;
+  }
+
+  .specSectionHeading > span {
+    display: none;
+  }
+
+  .specThreadTable > div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .specThreadTable > div > :last-child {
+    grid-column: 1;
   }
 }

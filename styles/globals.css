@@ -1,10 +1,33 @@
 @import "tailwindcss";
 
+html {
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+  overflow-x: hidden;
   background: #070b14;
   color: #f8fafc;
   font-family: system-ui, sans-serif;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: anywhere;
 }
 
 /* Specification guide */
@@ -111,5 +134,58 @@ body {
 
   .site-nav-link {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    gap: 14px;
+    padding: 20px;
+  }
+
+  .site-navigation {
+    width: 100%;
+    gap: 8px 16px;
+  }
+
+  .site-nav-link {
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+  }
+
+  .eyebrow {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .primary-button {
+    justify-content: center;
+    max-width: 100%;
+    padding: 14px 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    padding: 18px 16px;
+  }
+
+  .site-brand {
+    gap: 9px;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+  }
+
+  .site-brand-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .site-navigation {
+    gap: 7px 14px;
+  }
+
+  .site-nav-link {
+    font-size: 0.82rem;
   }
 }

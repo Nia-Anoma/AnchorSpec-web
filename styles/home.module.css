@@ -494,3 +494,159 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .homeHero {
+    min-height: auto;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    padding: 168px 20px 56px;
+  }
+
+  .homeHeroCopy {
+    min-width: 0;
+  }
+
+  .homeHeroTitle {
+    font-size: clamp(3rem, 15vw, 5.5rem);
+    line-height: 1;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .homeHeroSubtitle {
+    font-size: clamp(1.25rem, 6.5vw, 2rem);
+    line-height: 1.25;
+  }
+
+  .homeHeroSubtitle br,
+  .homeHeroDescription br {
+    display: none;
+  }
+
+  .homeHeroDescription {
+    max-width: none;
+    margin-top: 24px;
+    font-size: 1rem;
+    line-height: 2;
+  }
+
+  .homeHeroVisual {
+    width: 100%;
+    min-height: clamp(420px, 125vw, 720px);
+    margin: 0;
+    border-radius: 8px;
+  }
+
+  .homeHeroVisualImage {
+    object-fit: contain;
+    object-position: center top;
+  }
+
+  .homeHeroVisual::before {
+    background: linear-gradient(180deg, #070b14 0%, rgba(7, 11, 20, 0.18) 24%, rgba(7, 11, 20, 0) 55%);
+  }
+
+  .homeSummaryCard {
+    right: 50%;
+    bottom: 16px;
+    width: calc(100% - 32px);
+    max-width: 430px;
+    transform: translateX(50%);
+  }
+
+  .homeSummaryCard h2 {
+    font-size: clamp(1.1rem, 5vw, 1.35rem);
+  }
+
+  .homeSummaryCoreCopy strong {
+    font-size: 1.1rem;
+  }
+
+  .homeSummaryCoreCopy small {
+    font-size: 0.95rem;
+  }
+
+  .homeArchitectureSection,
+  .homeConceptSection {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .homeArchitectureHeading h2,
+  .homeConceptHeading h2 {
+    font-size: clamp(1.8rem, 9vw, 2.75rem);
+    line-height: 1.15;
+  }
+
+  .homeArchitectureGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .homeArchitecturePanel,
+  .homeConceptCard {
+    min-width: 0;
+    padding: 22px 18px;
+  }
+
+  .homeArchitecturePlatformGrid,
+  .homeConceptGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .homeHero {
+    padding: 178px 16px 48px;
+  }
+
+  .homeHeroTitle {
+    font-size: clamp(2.65rem, 14vw, 4rem);
+  }
+
+  .homeHeroSubtitle {
+    margin-top: 18px;
+    font-size: clamp(1.1rem, 6vw, 1.55rem);
+  }
+
+  .homeHeroAuthorCard {
+    gap: 14px;
+  }
+
+  .homeHeroAuthorImage {
+    width: 52px;
+    height: 52px;
+  }
+
+  .homeHeroAuthor {
+    font-size: 1rem;
+  }
+
+  .homeHeroAuthorName {
+    font-size: 1.35rem;
+  }
+
+  .homeHeroVisual {
+    min-height: 540px;
+  }
+
+  .homeSummaryCard {
+    padding: 16px;
+  }
+
+  .homeSummaryCoreItem {
+    padding: 12px 14px;
+  }
+
+  .homeArchitectureSection,
+  .homeConceptSection {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .homeArchitectureNode,
+  .homeArchitecturePlatforms {
+    width: 100%;
+  }
+}

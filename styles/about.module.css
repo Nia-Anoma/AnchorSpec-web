@@ -109,3 +109,51 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .aboutPage {
+    padding: 168px 20px 64px;
+  }
+
+  .aboutHero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    min-height: auto;
+  }
+
+  .aboutTitle {
+    font-size: clamp(2.35rem, 11vw, 4rem);
+    line-height: 1.08;
+  }
+
+  .aboutLead {
+    margin-top: 24px;
+    font-size: clamp(1rem, 4.8vw, 1.25rem);
+  }
+
+  .aboutHeroVisual {
+    width: 100%;
+    min-height: 360px;
+  }
+
+  .aboutContent {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .aboutPanel {
+    min-width: 0;
+    padding: 22px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutPage {
+    padding: 178px 16px 56px;
+  }
+
+  .aboutHeroVisual {
+    min-height: 280px;
+  }
+}
