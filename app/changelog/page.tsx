@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { assetPath } from "@/lib/assets";
+import { createPageMetadata } from "@/lib/seo";
 import {
   ChangelogTimeline,
   type ProtocolChange,
 } from "@/components/changelog-timeline";
 import styles from "@/styles/changelog.module.css";
 
-export const metadata: Metadata = {
-  title: "変更履歴 | AnchorSpec",
+export const metadata: Metadata = createPageMetadata({
+  title: "変更履歴",
   description:
     "AnchorSpecプロトコルが、設計上の課題と判断を通じてどのように進化してきたかを紹介します。",
-};
+  path: "/changelog",
+});
 
 const protocolChanges: ProtocolChange[] = [
   {

@@ -1,6 +1,15 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { assetPath } from "@/lib/assets";
+import { createPageMetadata } from "@/lib/seo";
 import styles from "@/styles/about.module.css";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "概要",
+  description:
+    "AnchorSpecの開発背景、AI協働開発で解決する問題、設計思想、作者Nia Anomaについて紹介します。",
+  path: "/about",
+});
 
 export default function About() {
   return (

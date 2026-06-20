@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { assetPath } from "@/lib/assets";
+import { createPageMetadata } from "@/lib/seo";
 import styles from "@/styles/specification.module.css";
 
 const SPECIFICATION_URL = "https://github.com/Nia-Anoma/AnchorSpec";
 
-export const metadata: Metadata = {
-  title: "AnchorSpec 仕様紹介 | AI協働開発プロトコル",
+export const metadata: Metadata = createPageMetadata({
+  title: "仕様紹介",
   description:
     "AnchorSpecを初めて知る開発者向けに、解決する問題、コア概念、Thread Model、Verifyの考え方を紹介します。",
-};
+  path: "/docs",
+});
 
 const coreConcepts = [
   {

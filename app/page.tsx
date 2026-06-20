@@ -1,11 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { AnchorSpecSummaryCard } from "@/components/anchor-spec-summary-card";
 import { assetPath } from "@/lib/assets";
+import {
+  createPageMetadata,
+  SITE_DESCRIPTION,
+  SITE_URL,
+} from "@/lib/seo";
 import styles from "@/styles/home.module.css";
 
-const description =
-  "AnchorSpec is an AI-native development protocol for preserving intent, specifications, discussion history, and verification across long-running human-AI software development.";
+export const metadata: Metadata = createPageMetadata({
+  title: "AnchorSpec",
+  description: SITE_DESCRIPTION,
+  path: "/",
+});
 
 /*const codeRepository = "https://github.com/OWNER/AnchorSpec";*/
 const codeRepository = "https://github.com/Nia-Anoma/AnchorSpec";
@@ -21,7 +30,8 @@ const structuredData = {
   license: "https://opensource.org/licenses/MIT",
   programmingLanguage: "Markdown",
   codeRepository,
-  description,
+  url: `${SITE_URL}/`,
+  description: SITE_DESCRIPTION,
 };
 
 export default function Home() {
