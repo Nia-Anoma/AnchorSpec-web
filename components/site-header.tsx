@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { assetPath } from "@/lib/assets";
 
 /*const GITHUB_URL = "https://github.com/OWNER/AnchorSpec";*/
 const GITHUB_URL = "https://github.com/Nia-Anoma/AnchorSpec";
@@ -18,7 +19,7 @@ export function SiteHeader() {
     <header className="site-header">
       <Link href="/" className="site-brand" aria-label="AnchorSpec Home">
         <Image
-          src="/images/freeze_48.svg"
+          src={assetPath("/images/freeze_48.svg")}
           alt=""
           width={48}
           height={48}

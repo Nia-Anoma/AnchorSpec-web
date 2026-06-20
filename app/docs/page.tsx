@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { assetPath } from "@/lib/assets";
 import styles from "@/styles/specification.module.css";
 
 const SPECIFICATION_URL = "https://github.com/Nia-Anoma/AnchorSpec";
@@ -65,7 +66,7 @@ export default function DocsPage() {
 
         <div className={styles.specHeroVisual} aria-hidden="true">
           <Image
-            src="/images/Anchor.svg"
+            src={assetPath("/images/Anchor.svg")}
             alt="AnchorSpec"
             width={480}
             height={480}

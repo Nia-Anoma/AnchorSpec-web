@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AnchorSpecSummaryCard } from "@/components/anchor-spec-summary-card";
+import { assetPath } from "@/lib/assets";
 import styles from "@/styles/home.module.css";
 
 const description =
@@ -57,7 +58,7 @@ export default function Home() {
 
           <div className={styles.homeHeroAuthorCard}>
             <Image
-              src="/images/nia-anoma.png"
+              src={assetPath("/images/nia-anoma.png")}
               alt="Nia Anoma"
               width={64}
               height={64}
@@ -78,7 +79,7 @@ export default function Home() {
 
         <div className={styles.homeHeroVisual}>
           <Image
-            src="/images/hero-author.png"
+            src={assetPath("/images/hero-author.png")}
             alt="AnchorSpecを開発するNia Anoma"
             fill
             priority

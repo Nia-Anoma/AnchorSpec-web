@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetPath } from "@/lib/assets";
 import styles from "@/styles/home.module.css";
 
 const coreItems = [
@@ -29,7 +30,7 @@ export function AnchorSpecSummaryCard() {
     <aside className={styles.homeSummaryCard} aria-label="AnchorSpecの中核構造">
       <h2>
         <Image
-          src="/images/freeze_32.svg"
+          src={assetPath("/images/freeze_32.svg")}
           alt=""
           width={32}
           height={32}

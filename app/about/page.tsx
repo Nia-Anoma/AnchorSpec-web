@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetPath } from "@/lib/assets";
 import styles from "@/styles/about.module.css";
 
 export default function About() {
@@ -17,7 +18,7 @@ export default function About() {
 
         <div className={styles.aboutHeroVisual} aria-hidden="true">
           <Image
-            src="/images/freeze_512.svg"
+            src={assetPath("/images/freeze_512.svg")}
             alt=""
             fill
             priority

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { assetPath } from "@/lib/assets";
 import {
   ChangelogTimeline,
   type ProtocolChange,
@@ -105,7 +106,7 @@ export default function ChangelogPage() {
         <div className={styles.changelogVisual}>
           <div className={styles.changelogVisualFrame}>
             <Image
-              src="/images/nia.png"
+              src={assetPath("/images/nia.png")}
               alt=""
               width={1024}
               height={617}
