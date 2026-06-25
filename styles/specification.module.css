@@ -124,6 +124,52 @@
   margin: 0 0 30px;
 }
 
+.specProblemGroups {
+  display: grid;
+  gap: 64px;
+}
+
+.specProblemGroup > header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.specProblemGroup > header > span {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(96, 165, 250, 0.42);
+  border-radius: 999px;
+  color: #93c5fd;
+  font-weight: 800;
+}
+
+.specProblemGroup > header h3 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: clamp(1.55rem, 3vw, 2.3rem);
+}
+
+.specProblemGroup > header p {
+  margin: 5px 0 0;
+  color: #a78bfa;
+  font-weight: 700;
+}
+
+.specProblemGroup > p {
+  margin: 0 0 24px 54px;
+  color: #94a3b8;
+  line-height: 1.75;
+}
+
+.specProblemGroup .specCardGrid {
+  margin-top: 0;
+}
+
 .specSection .specProse,
 .specSection .specProse p {
   width: 100%;
@@ -774,6 +820,10 @@
   .specChangeFlow {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .specProblemGroup > p {
+    margin-left: 0;
   }
 
   .specChangeFlow b {

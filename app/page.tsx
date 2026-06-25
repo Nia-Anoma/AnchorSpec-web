@@ -4,8 +4,16 @@ import Link from "next/link";
 import { AnchorSpecSummaryCard } from "@/components/anchor-spec-summary-card";
 import { assetPath } from "@/lib/assets";
 import {
+  ANCHORSPEC_DEFINITION_EN,
+  ANCHORSPEC_DEFINITION_JA,
+  exclusions,
+  faqItems,
+  problemGroups,
+} from "@/lib/anchorspec-content";
+import {
   createPageMetadata,
   SITE_DESCRIPTION,
+  SITE_DESCRIPTION_EN,
   SITE_URL,
 } from "@/lib/seo";
 import styles from "@/styles/home.module.css";
@@ -21,17 +29,70 @@ const codeRepository = "https://github.com/Nia-Anoma/AnchorSpec";
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "SoftwareSourceCode",
-  name: "AnchorSpec",
-  author: {
-    "@type": "Person",
-    name: "Nia Anoma",
-  },
-  license: "https://opensource.org/licenses/MIT",
-  programmingLanguage: "Markdown",
-  codeRepository,
-  url: `${SITE_URL}/`,
-  description: SITE_DESCRIPTION,
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: `${SITE_URL}/`,
+      name: "AnchorSpec",
+      description: SITE_DESCRIPTION_EN,
+      inLanguage: ["en", "ja"],
+      publisher: { "@id": `${SITE_URL}/#author` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#author`,
+      name: "Nia Anoma",
+      alternateName: "ニア・アノマ",
+      url: `${SITE_URL}/about`,
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": `${SITE_URL}/#software`,
+      name: "AnchorSpec",
+      author: { "@id": `${SITE_URL}/#author` },
+      license: "https://opensource.org/licenses/MIT",
+      programmingLanguage: "Markdown",
+      codeRepository,
+      url: `${SITE_URL}/`,
+      description: SITE_DESCRIPTION_EN,
+    },
+    {
+      "@type": "TechArticle",
+      "@id": `${SITE_URL}/docs#article`,
+      headline: "AnchorSpec Specification Guide",
+      description: SITE_DESCRIPTION_EN,
+      url: `${SITE_URL}/docs`,
+      author: { "@id": `${SITE_URL}/#author` },
+      publisher: { "@id": `${SITE_URL}/#author` },
+      about: { "@id": `${SITE_URL}/#software` },
+      inLanguage: ["en", "ja"],
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/#faq`,
+      url: `${SITE_URL}/#faq`,
+      inLanguage: ["en", "ja"],
+      mainEntity: faqItems.flatMap((item) => [
+        {
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        },
+        {
+          "@type": "Question",
+          name: item.questionJa,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answerJa,
+          },
+        },
+      ]),
+    },
+  ],
 };
 
 export default function Home() {
@@ -44,26 +105,20 @@ export default function Home() {
 
       <section className={styles.homeHero}>
         <div className={styles.homeHeroCopy}>
-          <p className="eyebrow">AIネイティブ開発プロトコル</p>
+          <p className="eyebrow">Structured protocol for AI-assisted software development</p>
 
           <h1 className={styles.homeHeroTitle}>AnchorSpec</h1>
 
           <p className={styles.homeHeroSubtitle}>
-            意図・仕様・議論・実装・検証の
-            <br />
-            一貫性を物理的に維持するための
-            <br />
-            オープンソース開発プロトコル
+            Intent, Specification, Change Requests, Implementation, and
+            Verification as explicit operational layers.
           </p>
 
           <p className={styles.homeHeroDescription}>
-            AIがコードを書く時代。
-            <br />
-            重要なのは生成速度ではなく、意図・仕様の管理とAIの統制です。
-            <br />
-            AnchorSpecは、意図・仕様・議論・実装・検証を接続し、
-            <br />
-            長期的なAI協働開発を支えるためのオープンソース開発プロトコルです。
+            {ANCHORSPEC_DEFINITION_EN}
+          </p>
+          <p className={`${styles.homeHeroDescription} ${styles.homeHeroDescriptionJa}`}>
+            {ANCHORSPEC_DEFINITION_JA}
           </p>
 
           <div className={styles.homeHeroAuthorCard}>
@@ -98,6 +153,62 @@ export default function Home() {
           />
 
           <AnchorSpecSummaryCard />
+        </div>
+      </section>
+
+      <section className={styles.homeDefinitionSection} aria-label="AnchorSpecの定義と適用範囲">
+        <div className={styles.homeDefinitionGrid}>
+          <article className={styles.homeDefinitionCard} aria-labelledby="definition-title">
+            <p className="eyebrow">What AnchorSpec is</p>
+            <h2 id="definition-title">AnchorSpecとは</h2>
+            <p>{ANCHORSPEC_DEFINITION_JA.replace(/^AnchorSpecは、/, "")}</p>
+          </article>
+
+          <article className={styles.homeDefinitionCard} aria-labelledby="not-title">
+            <p className="eyebrow">What AnchorSpec is not</p>
+            <h2 id="not-title">AnchorSpecではないもの</h2>
+            <ul className={styles.homeExclusionList}>
+              {exclusions.map((item) => (
+                <li key={item.en}>{item.ja}</li>
+              ))}
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section className={styles.homeProblemsSection} id="problems" aria-labelledby="problems-title">
+        <div className={styles.homeSectionHeading}>
+          <p className="eyebrow">Problems AnchorSpec addresses / 解決する問題</p>
+          <h2 id="problems-title">Problems AnchorSpec addresses</h2>
+        </div>
+        <div className={styles.homeProblemGroups}>
+          {problemGroups.map((group, groupIndex) => (
+            <section className={styles.homeProblemGroup} key={group.title}>
+              <header>
+                <p className={styles.homeProblemIndex}>
+                  {String.fromCharCode(65 + groupIndex)}
+                </p>
+                <div>
+                  <h3>{group.title}</h3>
+                  <p lang="ja">{group.titleJa}</p>
+                </div>
+              </header>
+              <p>{group.description}</p>
+              <p lang="ja">{group.descriptionJa}</p>
+              <div className={styles.homeProblemGrid}>
+                {group.items.map((item) => (
+                  <article key={item.title}>
+                    <h4>{item.title}</h4>
+                    <p className={styles.homeProblemTitleJa} lang="ja">
+                      {item.titleJa}
+                    </p>
+                    <p>{item.description}</p>
+                    <p lang="ja">{item.descriptionJa}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ))}
         </div>
       </section>
 
@@ -246,6 +357,27 @@ export default function Home() {
               verifyの結果が常に正しいとは限りません。
             </p>
           </article>
+        </div>
+      </section>
+
+      <section className={styles.homeFaqSection} id="faq" aria-labelledby="faq-title">
+        <div className={styles.homeSectionHeading}>
+          <p className="eyebrow">Frequently asked questions / よくある質問</p>
+          <h2 id="faq-title">AnchorSpec FAQ</h2>
+        </div>
+        <div className={styles.homeFaqList}>
+          {faqItems.map((item) => (
+            <article className={styles.homeFaqItem} key={item.question}>
+              <div>
+                <h3>{item.question}</h3>
+                <p>{item.answer}</p>
+              </div>
+              <div lang="ja">
+                <h3>{item.questionJa}</h3>
+                <p>{item.answerJa}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
     </main>

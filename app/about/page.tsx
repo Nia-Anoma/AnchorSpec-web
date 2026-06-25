@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { assetPath } from "@/lib/assets";
+import { ANCHORSPEC_DEFINITION_JA } from "@/lib/anchorspec-content";
 import { createPageMetadata } from "@/lib/seo";
 import styles from "@/styles/about.module.css";
 
 export const metadata: Metadata = createPageMetadata({
   title: "概要",
   description:
-    "AnchorSpecの開発背景、AI協働開発で解決する問題、設計思想、作者Nia Anomaについて紹介します。",
+    "AnchorSpecの開発背景と、意図・仕様・変更要求・実装・検証を分離するAI協働開発プロトコルの設計思想を紹介します。",
   path: "/about",
 });
 
@@ -19,9 +20,7 @@ export default function About() {
           <p className="eyebrow">About AnchorSpec</p>
           <h1 className={styles.aboutTitle}>意図を、仕様として固定する。</h1>
           <p className={styles.aboutLead}>
-            AnchorSpecは、AIと人間が同じ設計意図を見失わずに開発を進めるための
-            仕様駆動プロトコルです。速く作るだけでなく、なぜそう作るのかを
-            最後まで保つことを目的にしています。
+            {ANCHORSPEC_DEFINITION_JA}
           </p>
         </div>
 
@@ -74,7 +73,9 @@ export default function About() {
             「検証可能な共創」をテーマに、AnchorSpecの設計と執筆を進めています。
           </p>
           <p>
-           AnchorSpecは、AIとの共同開発において設計意図を失わないための実践的な開発プロトコルです。
+            AnchorSpecはAIを自律的に動かすエージェントフレームワークではありません。
+            運用レイヤー、責任境界、変更経路、検証経路を明示することで、
+            人間とAIの協働を追跡・レビュー・検証できる状態に保つためのプロトコルです。
           </p>
         </article>
       </section>

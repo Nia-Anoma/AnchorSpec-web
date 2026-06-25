@@ -23,7 +23,7 @@
 
 .homeHeroTitle {
   margin: 0;
-  font-size: clamp(4.75rem, 8vw, 8.5rem);
+  font-size: clamp(4.75rem, 7vw, 8.5rem);
   line-height: 0.95;
 }
 
@@ -37,15 +37,248 @@
 }
 
 .homeHeroDescription {
-  margin-top: 32px;
-  max-width: 32rem;
+  width: min(42rem, 56vw);
+  margin: 26px 0 0;
+  max-width: 42rem;
   color: #cbd5e1;
-  font-size: 1.15rem;
-  line-height: 2.5;
+  font-size: clamp(1rem, 1.15vw, 1.1rem);
+  line-height: 1.72;
+  text-wrap: pretty;
 }
 
 .homeHeroDescriptionJa {
-  margin-top: 18px;
+  width: min(40rem, 54vw);
+  margin-top: 14px;
+  max-width: 40rem;
+  color: #e2e8f0;
+  font-size: clamp(0.96rem, 1.05vw, 1.04rem);
+  line-height: 1.85;
+}
+
+.homeDefinitionSection,
+.homeProblemsSection,
+.homeFaqSection {
+  position: relative;
+  z-index: 2;
+  padding: 88px 40px;
+}
+
+.homeDefinitionSection,
+.homeProblemsSection {
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+  background: rgba(12, 19, 35, 0.72);
+}
+
+.homeFaqSection {
+  background:
+    linear-gradient(180deg, rgba(7, 11, 20, 0.2) 0%, #070b14 22%),
+    #070b14;
+}
+
+.homeSectionHeading,
+.homeDefinitionGrid,
+.homeProblemGroups,
+.homeFaqList {
+  width: min(100%, 1320px);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.homeSectionHeading h2 {
+  margin: 10px 0 0;
+  color: #f8fafc;
+  font-size: clamp(2.25rem, 5vw, 4.75rem);
+  line-height: 1;
+}
+
+.homeSectionHeading > p:last-child:not(:first-child) {
+  margin: 12px 0 0;
+  color: #94a3b8;
+  font-size: 1.05rem;
+}
+
+.homeDefinitionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+.homeDefinitionCard {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(125, 211, 252, 0.24);
+  border-radius: 12px;
+  background:
+    linear-gradient(145deg, rgba(30, 41, 59, 0.76), rgba(15, 23, 42, 0.5)),
+    rgba(7, 11, 20, 0.64);
+  box-shadow:
+    inset 0 1px 0 rgba(248, 250, 252, 0.05),
+    0 24px 64px rgba(0, 0, 0, 0.2);
+  padding: clamp(26px, 3vw, 38px);
+  backdrop-filter: blur(14px);
+}
+
+.homeDefinitionCard::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  content: "";
+  background: linear-gradient(180deg, #60a5fa, #a78bfa);
+}
+
+.homeDefinitionCard h2 {
+  margin: 10px 0 18px;
+  color: #f8fafc;
+  font-size: clamp(1.6rem, 2.5vw, 2.35rem);
+  line-height: 1.2;
+}
+
+.homeDefinitionCard > p:last-child {
+  margin: 0;
+  color: #e2e8f0;
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  line-height: 1.85;
+}
+
+.homeExclusionList {
+  display: grid;
+  gap: 11px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.homeExclusionList li {
+  position: relative;
+  color: #e2e8f0;
+  font-size: clamp(0.96rem, 1.15vw, 1.08rem);
+  line-height: 1.65;
+  padding-left: 22px;
+}
+
+.homeExclusionList li::before {
+  position: absolute;
+  top: 0.68em;
+  left: 2px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #a78bfa;
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.7);
+  content: "";
+}
+
+.homeProblemGroups {
+  display: grid;
+  gap: 56px;
+  margin-top: 46px;
+}
+
+.homeProblemGroup > header {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.homeProblemGroup > header h3 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.homeProblemGroup > header p:not(.homeProblemIndex) {
+  margin: 6px 0 0;
+  color: #a78bfa;
+  font-weight: 700;
+}
+
+.homeProblemIndex {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  place-items: center;
+  margin: 0;
+  border: 1px solid rgba(96, 165, 250, 0.42);
+  border-radius: 999px;
+  color: #93c5fd;
+  font-weight: 800;
+}
+
+.homeProblemGroup > p {
+  max-width: 860px;
+  margin: 18px 0 0 58px;
+  color: #94a3b8;
+  line-height: 1.7;
+}
+
+.homeProblemGroup > p + p {
+  margin-top: 4px;
+}
+
+.homeProblemGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.homeProblemGrid article {
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 8px;
+  background: rgba(7, 11, 20, 0.48);
+  padding: 24px;
+}
+
+.homeProblemGrid h4 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.homeProblemGrid p {
+  margin: 14px 0 0;
+  color: #cbd5e1;
+  font-size: 0.93rem;
+  line-height: 1.7;
+}
+
+.homeProblemGrid .homeProblemTitleJa {
+  margin-top: 6px;
+  color: #93c5fd;
+  font-weight: 700;
+}
+
+.homeFaqList {
+  display: grid;
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.homeFaqItem {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.48);
+  padding: 28px;
+}
+
+.homeFaqItem h3 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 1.15rem;
+  line-height: 1.45;
+}
+
+.homeFaqItem p {
+  margin: 12px 0 0;
+  color: #cbd5e1;
+  line-height: 1.75;
 }
 
 .homeHeroAuthorCard {
@@ -435,6 +668,10 @@
   .homeConceptGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .homeProblemGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 900px) {
@@ -446,6 +683,11 @@
 
   .homeHeroCopy {
     max-width: 100%;
+  }
+
+  .homeHeroDescription,
+  .homeHeroDescriptionJa {
+    width: auto;
   }
 
   .homeHeroTitle {
@@ -477,6 +719,12 @@
     padding: 72px 24px;
   }
 
+  .homeDefinitionSection,
+  .homeProblemsSection,
+  .homeFaqSection {
+    padding: 72px 24px;
+  }
+
   .homeArchitectureSection {
     padding: 64px 24px;
   }
@@ -491,6 +739,11 @@
   }
 
   .homeConceptGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .homeDefinitionGrid,
+  .homeFaqItem {
     grid-template-columns: 1fr;
   }
 }
@@ -568,13 +821,17 @@
   }
 
   .homeArchitectureSection,
-  .homeConceptSection {
+  .homeConceptSection,
+  .homeDefinitionSection,
+  .homeProblemsSection,
+  .homeFaqSection {
     padding-right: 20px;
     padding-left: 20px;
   }
 
   .homeArchitectureHeading h2,
-  .homeConceptHeading h2 {
+  .homeConceptHeading h2,
+  .homeSectionHeading h2 {
     font-size: clamp(1.8rem, 9vw, 2.75rem);
     line-height: 1.15;
   }
@@ -591,8 +848,15 @@
   }
 
   .homeArchitecturePlatformGrid,
-  .homeConceptGrid {
+  .homeConceptGrid,
+  .homeDefinitionGrid,
+  .homeProblemGrid,
+  .homeFaqItem {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .homeProblemGroup > p {
+    margin-left: 0;
   }
 }
 
@@ -640,7 +904,10 @@
   }
 
   .homeArchitectureSection,
-  .homeConceptSection {
+  .homeConceptSection,
+  .homeDefinitionSection,
+  .homeProblemsSection,
+  .homeFaqSection {
     padding-right: 16px;
     padding-left: 16px;
   }

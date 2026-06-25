@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { assetPath } from "@/lib/assets";
+import {
+  ANCHORSPEC_DEFINITION_EN,
+  ANCHORSPEC_DEFINITION_JA,
+  problemGroups,
+} from "@/lib/anchorspec-content";
 import { createPageMetadata } from "@/lib/seo";
 import styles from "@/styles/specification.module.css";
 
@@ -9,7 +14,7 @@ const SPECIFICATION_URL = "https://github.com/Nia-Anoma/AnchorSpec";
 export const metadata: Metadata = createPageMetadata({
   title: "仕様紹介",
   description:
-    "AnchorSpecを初めて知る開発者向けに、解決する問題、コア概念、Thread Model、Verifyの考え方を紹介します。",
+    "AnchorSpecのIntent、Specification、Change Request、Implementation、Gap、Verificationという運用レイヤーと変更・検証経路を紹介します。",
   path: "/docs",
 });
 
@@ -60,9 +65,7 @@ export default function DocsPage() {
             仕様書
           </h1>
           <p className={styles.specLead}>
-            AnchorSpecは、思考・仕様・実装を分離し、差分と検証によって再接続する
-            AIネイティブ開発プロトコルです。このページでは、初めて触れる開発者が
-            運用の全体像をつかめるように中核だけを紹介します。
+            {ANCHORSPEC_DEFINITION_JA}
           </p>
         </div>
 
@@ -72,6 +75,7 @@ export default function DocsPage() {
             alt="AnchorSpec"
             width={480}
             height={480}
+            priority
             className="spec-hero-image"
           />
         </div>
@@ -91,9 +95,10 @@ export default function DocsPage() {
 
         <div className={`${styles.specProse} ${styles.specProseWide}`}>
           <p>
-            AnchorSpecは、人間とAIの共同開発における構造管理を対象とします。
-            AIにコード生成を任せるだけでなく、目的、合意済み仕様、議論中の差分、
-            実装状態を別々の責務として管理します。
+            {ANCHORSPEC_DEFINITION_EN}
+          </p>
+          <p>
+            {ANCHORSPEC_DEFINITION_JA}
           </p>
           <p>
             中心原則は、<strong>Specを唯一のSource of Truthとして扱うこと</strong>
@@ -110,42 +115,39 @@ export default function DocsPage() {
       </section>
 
       <section className={`${styles.specSectionAlt} ${styles.specSection}`} id="problems">
-        <SectionHeading number="02" eyebrow="Problem" title="解決する問題" />
+        <SectionHeading
+          number="02"
+          eyebrow="Problems AnchorSpec addresses"
+          title="解決する問題"
+        />
 
         <p className={styles.specSectionIntro}>
-          長期のAI協働開発では、会話の長さだけでなく、意味の密度、依存関係、
-          矛盾する前提の混在によって構造が静かに変化します。
+          AnchorSpecが対処する問題を、定義や責任がまだ明示されていない問題領域と、
+          AI協働開発で観測される既知の失敗モードに分けて整理します。
         </p>
 
-        <div className={`${styles.specCardGrid} ${styles.specProblemGrid}`}>
-          <article className={styles.specCard}>
-            <h3>Context Drift</h3>
-            <p>
-              保持されるべき前提・意図・参照関係がずれ、再現性と整合性が失われる現象です。
-              蓄積による緩やかなDriftと、矛盾をAIが暗黙に解消する衝突型Driftがあります。
-            </p>
-          </article>
-          <article className={styles.specCard}>
-            <h3>Semantic Load</h3>
-            <p>
-              テキスト量ではなく、目的、制約、仕様、議論、依存関係など
-              「意味の総量」が増えることで、重要度の重み付けが不安定になります。
-            </p>
-          </article>
-          <article className={styles.specCard}>
-            <h3>Structural Lie</h3>
-            <p>
-              表面上は整合して見えても、前提や参照関係が破綻している状態です。
-              明示的なエラーになりにくいため、正しい状態だと誤認する危険があります。
-            </p>
-          </article>
-          <article className={styles.specCard}>
-            <h3>Discrete Drift</h3>
-            <p>
-              別セッションで行われた変更を知らないAIが、古い合意に基づいて処理を続ける問題です。
-              複数AIや複数コンテキストを並行利用すると特に顕在化します。
-            </p>
-          </article>
+        <div className={styles.specProblemGroups}>
+          {problemGroups.map((group, index) => (
+            <section className={styles.specProblemGroup} key={group.title}>
+              <header>
+                <span>{String.fromCharCode(65 + index)}</span>
+                <div>
+                  <h3>{group.title}</h3>
+                  <p>{group.titleJa}</p>
+                </div>
+              </header>
+              <p>{group.descriptionJa}</p>
+              <div className={`${styles.specCardGrid} ${styles.specProblemGrid}`}>
+                {group.items.map((item) => (
+                  <article className={styles.specCard} key={item.title}>
+                    <h3>{item.title}</h3>
+                    <p className={styles.specCardLabel}>{item.titleJa}</p>
+                    <p>{item.descriptionJa}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ))}
         </div>
       </section>
 
