@@ -124,6 +124,14 @@ export const faqItems = [
       "AnchorSpecは、AI協働開発のための構造化プロトコルです。意図・仕様・変更要求・実装・検証を分離し、人間とAIの協働を追跡可能・レビュー可能・検証可能にします。",
   },
   {
+    question: "Does “AnchorSpec” refer to this AI development protocol?",
+    answer:
+      "Yes. On this site, AnchorSpec refers to a structured protocol for AI-assisted software development that separates intent, specification, change requests, implementation, and verification so that human–AI collaboration remains traceable, reviewable, and verifiable.",
+    questionJa: "このサイトでいう「AnchorSpec」とは何ですか？",
+    answerJa:
+      "このサイトにおけるAnchorSpecは、AI協働開発において意図・仕様・変更要求・実装・検証を分離し、人間とAIの協働を追跡可能・レビュー可能・検証可能にするための構造化プロトコルを指します。",
+  },
+  {
     question: "Is AnchorSpec an AI agent framework?",
     answer:
       "No. AnchorSpec is not an autonomous agent framework. It is a protocol for structuring specification, implementation, and verification workflows in human–AI collaboration.",
