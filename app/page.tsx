@@ -63,36 +63,39 @@ const structuredData = {
       headline: "AnchorSpec Specification Guide",
       description: SITE_DESCRIPTION_EN,
       url: `${SITE_URL}/docs`,
+      image: [`${SITE_URL}/images/og-image.png`],
       author: { "@id": `${SITE_URL}/#author` },
       publisher: { "@id": `${SITE_URL}/#author` },
       about: { "@id": `${SITE_URL}/#software` },
       inLanguage: ["en", "ja"],
     },
-    {
-      "@type": "FAQPage",
-      "@id": `${SITE_URL}/#faq`,
-      url: `${SITE_URL}/#faq`,
-      inLanguage: ["en", "ja"],
-      mainEntity: faqItems.flatMap((item) => [
-        {
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: item.answer,
-          },
-        },
-        {
-          "@type": "Question",
-          name: item.questionJa,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: item.answerJa,
-          },
-        },
-      ]),
-    },
   ],
+};
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${SITE_URL}/#faq`,
+  url: `${SITE_URL}/#faq`,
+  inLanguage: ["en", "ja"],
+  mainEntity: faqItems.flatMap((item) => [
+    {
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    },
+    {
+      "@type": "Question",
+      name: item.questionJa,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answerJa,
+      },
+    },
+  ]),
 };
 
 export default function Home() {
@@ -101,6 +104,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
       />
 
       <section className={styles.homeHero}>
