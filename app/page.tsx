@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { AnchorSpecSummaryCard } from "@/components/anchor-spec-summary-card";
+import { GovernanceFrameworksSection } from "@/components/governance-frameworks-section";
 import { assetPath } from "@/lib/assets";
 import {
   ANCHORSPEC_DEFINITION_EN,
@@ -366,6 +367,8 @@ export default function Home() {
           </article>
         </div>
       </section>
+
+      <GovernanceFrameworksSection />
 
       <section className={styles.homeFaqSection} id="faq" aria-labelledby="faq-title">
         <div className={styles.homeSectionHeading}>

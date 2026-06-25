@@ -114,6 +114,69 @@ export const problemGroups = [
   },
 ] as const;
 
+export const governanceContent = {
+  title: "Governance & External Frameworks",
+  titleJa: "ガバナンスと外部フレームワークへの位置づけ",
+  paragraphs: [
+    "AnchorSpec is not a certification scheme and does not guarantee compliance with any legal, regulatory, organizational, or industry-specific framework.",
+    "However, AnchorSpec provides a structured protocol for separating intent, specification, change requests, implementation, and verification in AI-assisted software development. This structure can support governance-related activities such as traceability, change control, verification records, and responsibility boundary clarification.",
+    "As a result, AnchorSpec can serve as a practical operational layer for connecting AI-assisted development workflows to external governance frameworks, standards, and compliance requirements, while keeping AnchorSpec’s own scope distinct from project-specific legal, organizational, and domain obligations.",
+  ],
+  paragraphsJa: [
+    "AnchorSpecは、特定の法令・規制・マネジメントシステム・業界基準への認証・適合・準拠を保証するものではありません。",
+    "ただし、AnchorSpecは、AI協働開発において意図・仕様・変更要求・実装・検証を分離するための構造化プロトコルです。この構造は、追跡可能性、変更管理、検証記録、責任境界の明確化といったガバナンス関連活動を支援できます。",
+    "その結果として、AnchorSpecは、AI協働開発のワークフローを外部のガバナンスフレームワーク、標準、コンプライアンス要件へ接続するための実務的な運用レイヤーとして機能し得ます。一方で、AnchorSpec自身の責任範囲と、各プロジェクト固有の法的・組織的・業界的要件は明確に切り分けて扱うものとします。",
+  ],
+  supportTitle: "What AnchorSpec can support",
+  supportTitleJa: "AnchorSpecが支援できる観点",
+  supportItems: [
+    {
+      en: "Separation of intent, specification, implementation, and verification",
+      ja: "意図・仕様・実装・検証の分離",
+    },
+    {
+      en: "Traceable change handling through Gap / Change Request workflows",
+      ja: "Gap / Change Request を通じた追跡可能な変更管理",
+    },
+    {
+      en: "Explicit verification records and mismatch detection",
+      ja: "Verifyによる不一致検出と検証記録",
+    },
+    {
+      en: "Clear responsibility boundaries between proposal, approval, implementation, and review",
+      ja: "提案・承認・実装・レビューの責任境界の明確化",
+    },
+    {
+      en: "Separation between AnchorSpec-internal structure and project-specific governance requirements",
+      ja: "AnchorSpec内部構造とプロジェクト依存ガバナンス要件の切り分け",
+    },
+    {
+      en: "A practical operational layer that can be mapped to external governance, compliance, or domain-specific control frameworks",
+      ja: "外部のガバナンス・コンプライアンス・業界フレームワークへ接続可能な実務レイヤー",
+    },
+  ],
+  examplesTitle: "Examples of external frameworks may include",
+  examplesTitleJa: "対象となり得る外部フレームワークの例",
+  examplesNote:
+    "These are illustrative categories only. AnchorSpec does not guarantee certification, conformity, or compliance with any external framework.",
+  examplesNoteJa:
+    "これらは接続対象となり得る領域の例示であり、AnchorSpecが認証・適合・準拠を保証するものではありません。",
+  exampleItems: [
+    {
+      en: "AI management and governance standards",
+      ja: "AIマネジメント・ガバナンス標準",
+    },
+    {
+      en: "Legal and regulatory AI frameworks",
+      ja: "AIに関する法令・規制フレームワーク",
+    },
+    {
+      en: "Domain-specific governance requirements such as healthcare or safety-critical development",
+      ja: "医療や安全性が重要な領域におけるドメイン固有のガバナンス要件",
+    },
+  ],
+} as const;
+
 export const faqItems = [
   {
     question: "What is AnchorSpec?",

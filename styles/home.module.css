@@ -57,6 +57,7 @@
 
 .homeDefinitionSection,
 .homeProblemsSection,
+.homeGovernanceSection,
 .homeFaqSection {
   position: relative;
   z-index: 2;
@@ -64,7 +65,8 @@
 }
 
 .homeDefinitionSection,
-.homeProblemsSection {
+.homeProblemsSection,
+.homeGovernanceSection {
   border-top: 1px solid rgba(148, 163, 184, 0.14);
   border-bottom: 1px solid rgba(148, 163, 184, 0.14);
   background: rgba(12, 19, 35, 0.72);
@@ -79,6 +81,9 @@
 .homeSectionHeading,
 .homeDefinitionGrid,
 .homeProblemGroups,
+.homeGovernanceIntro,
+.homeGovernanceSupport,
+.homeGovernanceExamples,
 .homeFaqList {
   width: min(100%, 1320px);
   margin-right: auto;
@@ -279,6 +284,150 @@
   margin: 12px 0 0;
   color: #cbd5e1;
   line-height: 1.75;
+}
+
+.homeGovernanceIntro {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.homeGovernanceIntro article,
+.homeGovernanceSupport,
+.homeGovernanceExamples {
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 12px;
+  background:
+    linear-gradient(145deg, rgba(30, 41, 59, 0.72), rgba(15, 23, 42, 0.48)),
+    rgba(7, 11, 20, 0.62);
+  box-shadow:
+    inset 0 1px 0 rgba(248, 250, 252, 0.04),
+    0 22px 58px rgba(0, 0, 0, 0.18);
+  padding: clamp(24px, 3vw, 34px);
+  backdrop-filter: blur(12px);
+}
+
+.homeLanguageLabel {
+  margin: 0 0 16px;
+  color: #93c5fd;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.homeGovernanceIntro article > p:not(.homeLanguageLabel) {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.homeGovernanceIntro article > p + p {
+  margin-top: 18px;
+}
+
+.homeGovernanceSupport {
+  margin-top: 24px;
+}
+
+.homeGovernanceSubheading h3,
+.homeGovernanceExamples h3 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 1.25;
+}
+
+.homeGovernanceSubheading > p,
+.homeGovernanceExamples > div:first-child > p {
+  margin: 7px 0 0;
+  color: #a78bfa;
+  font-weight: 700;
+}
+
+.homeGovernanceSupportList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.homeGovernanceSupportList li {
+  position: relative;
+  display: grid;
+  gap: 7px;
+  border: 1px solid rgba(96, 165, 250, 0.16);
+  border-radius: 8px;
+  background: rgba(7, 11, 20, 0.38);
+  padding: 18px 18px 18px 40px;
+}
+
+.homeGovernanceSupportList li::before {
+  position: absolute;
+  top: 24px;
+  left: 20px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #60a5fa;
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.65);
+  content: "";
+}
+
+.homeGovernanceSupportList strong,
+.homeGovernanceExamples li strong {
+  color: #e2e8f0;
+  line-height: 1.55;
+}
+
+.homeGovernanceSupportList span,
+.homeGovernanceExamples li span {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.homeGovernanceExamples {
+  margin-top: 24px;
+  border-color: rgba(167, 139, 250, 0.28);
+}
+
+.homeGovernanceExamples > ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.homeGovernanceExamples li {
+  display: grid;
+  gap: 7px;
+  border-radius: 8px;
+  background: rgba(88, 28, 135, 0.1);
+  padding: 18px;
+}
+
+.homeGovernanceDisclaimer {
+  margin-top: 22px;
+  border-left: 2px solid #a78bfa;
+  padding-left: 16px;
+}
+
+.homeGovernanceDisclaimer p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.homeGovernanceDisclaimer p + p {
+  margin-top: 5px;
 }
 
 .homeHeroAuthorCard {
@@ -721,6 +870,7 @@
 
   .homeDefinitionSection,
   .homeProblemsSection,
+  .homeGovernanceSection,
   .homeFaqSection {
     padding: 72px 24px;
   }
@@ -743,6 +893,7 @@
   }
 
   .homeDefinitionGrid,
+  .homeGovernanceIntro,
   .homeFaqItem {
     grid-template-columns: 1fr;
   }
@@ -824,6 +975,7 @@
   .homeConceptSection,
   .homeDefinitionSection,
   .homeProblemsSection,
+  .homeGovernanceSection,
   .homeFaqSection {
     padding-right: 20px;
     padding-left: 20px;
@@ -851,6 +1003,9 @@
   .homeConceptGrid,
   .homeDefinitionGrid,
   .homeProblemGrid,
+  .homeGovernanceIntro,
+  .homeGovernanceSupportList,
+  .homeGovernanceExamples > ul,
   .homeFaqItem {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -907,6 +1062,7 @@
   .homeConceptSection,
   .homeDefinitionSection,
   .homeProblemsSection,
+  .homeGovernanceSection,
   .homeFaqSection {
     padding-right: 16px;
     padding-left: 16px;
