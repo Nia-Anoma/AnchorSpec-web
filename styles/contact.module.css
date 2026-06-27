@@ -175,7 +175,7 @@
   line-height: 1.85;
 }
 
-.mailPanel a {
+.contactLink {
   display: grid;
   gap: 8px;
   min-width: 0;
@@ -189,11 +189,22 @@
   text-decoration: none;
 }
 
-.mailPanel a span {
+.contactLink span {
   color: #93c5fd;
   font-size: 0.74rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+.githubContact {
+  display: grid;
+  gap: 14px;
+}
+
+.githubContact p {
+  margin: 0;
+  color: #94a3b8;
+  line-height: 1.75;
 }
 
 @media (max-width: 900px) {

@@ -1,0 +1,92 @@
+name: Documentation
+description: Suggest a documentation correction, clarification, addition, or restructuring.
+title: "[Docs]: "
+labels: ["documentation", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for documentation improvements that are not primarily bug reports.
+
+        AnchorSpec terminology should stay aligned with the canonical specification. If your suggestion changes a concept, please explain the reason clearly.
+
+  - type: input
+    id: location
+    attributes:
+      label: Documentation location
+      description: Page path, URL, heading, file, or section.
+      placeholder: "/docs, /about, SITE_SPEC.md, or a specific URL"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: doc_change_type
+    attributes:
+      label: Type of documentation change
+      options:
+        - Clarification
+        - Missing information
+        - Incorrect or outdated wording
+        - Example needed
+        - Diagram or visual improvement
+        - Structure or navigation
+        - Translation or bilingual wording
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: What should be improved?
+      description: Describe the documentation problem.
+      placeholder: "This section is unclear because ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested wording or structure
+      description: Propose wording, an outline, or a structural change if you have one.
+      placeholder: "Suggested text: ..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: anchorspec_terms
+    attributes:
+      label: AnchorSpec terminology involved
+      description: Optional. List any terms that may be affected.
+      placeholder: "Intent, Spec, Gap, Verify, Change Request, Freeze, Thaw, etc."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language
+      description: Which language is involved?
+      options:
+        - English
+        - Japanese
+        - English and Japanese
+        - Not language-specific
+    validations:
+      required: false
+
+  - type: textarea
+    id: japanese
+    attributes:
+      label: Japanese notes / 日本語補足
+      description: Optional. You may add Japanese context here.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Links, screenshots, references, or related issues.
+    validations:
+      required: false

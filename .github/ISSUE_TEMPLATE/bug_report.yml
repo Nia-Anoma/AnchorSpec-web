@@ -1,0 +1,110 @@
+name: Bug Report
+description: Report a defect, typo, broken link, or mismatch in AnchorSpec materials.
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve AnchorSpec.
+
+        Use this form for defects in the website, documentation, examples, links, or AnchorSpec explanations.
+        For private adoption, business, media, or case-specific legal/compliance questions, please use the contact page instead.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What is wrong? Keep this concise.
+      placeholder: "The documentation says ..., but ..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      description: Which part of AnchorSpec is affected?
+      options:
+        - Website
+        - Documentation
+        - AnchorSpec terminology or explanation
+        - Example or diagram
+        - Link, asset, or navigation
+        - Build or deployment
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: URL, page path, file path, heading, or section where the issue appears.
+      placeholder: "/docs, /contact, README.md, or a specific URL"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior or wording
+      description: What should happen, or what should the text say?
+      placeholder: "Expected ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior or wording
+      description: What currently happens, or what does the text currently say?
+      placeholder: "Actual ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Required for behavior or rendering bugs. For typos or wording issues, write "Not applicable".
+      placeholder: |
+        1. Open ...
+        2. Click ...
+        3. See ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Why does this matter for readers, implementers, or maintainers?
+      placeholder: "This may confuse readers because ..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, OS, device, Node.js version, or deployment context if relevant.
+      placeholder: "Chrome 126 on Windows 11, mobile Safari, npm run build, GitHub Pages, etc."
+    validations:
+      required: false
+
+  - type: textarea
+    id: japanese
+    attributes:
+      label: Japanese notes / 日本語補足
+      description: Optional. You may add Japanese context here.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Screenshots, links, related issues, or other relevant details.
+    validations:
+      required: false

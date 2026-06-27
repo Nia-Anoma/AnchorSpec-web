@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { createPageMetadata } from "@/lib/seo";
 import styles from "@/styles/contact.module.css";
 
+const GITHUB_ISSUES_URL = "https://github.com/Nia-Anoma/AnchorSpec/issues";
+
 export const metadata: Metadata = createPageMetadata({
   title: "Contact / お問い合わせ",
   description:
@@ -127,10 +129,26 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <a href="mailto:anchorspecofficial@gmail.com">
+          <a className={styles.contactLink} href="mailto:anchorspecofficial@gmail.com">
             <span>Email</span>
             anchorspecofficial@gmail.com
           </a>
+
+          <div className={styles.githubContact}>
+            <a
+              className={styles.contactLink}
+              href={GITHUB_ISSUES_URL}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>GitHub</span>
+              Issues
+            </a>
+            <p>
+              Bug reports and technical discussions are also welcome via GitHub
+              Issues.
+            </p>
+          </div>
         </article>
       </section>
     </main>

@@ -1,0 +1,90 @@
+name: Feature Request
+description: Propose an improvement to the AnchorSpec website, documentation, or project workflow.
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing an improvement.
+
+        AnchorSpec separates intent, specification, change, implementation, and verification. Please describe the problem and the intended outcome before proposing implementation details.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or opportunity
+      description: What problem should this solve? Who is affected?
+      placeholder: "Readers currently have difficulty understanding ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: What should be added, changed, or removed?
+      placeholder: "Add a page/section/component that ..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Where would this change apply?
+      options:
+        - Website content
+        - Documentation structure
+        - AnchorSpec explanation or terminology
+        - Examples or diagrams
+        - Navigation or information architecture
+        - Build, deployment, or repository workflow
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: anchorspec_alignment
+    attributes:
+      label: AnchorSpec alignment
+      description: How does this preserve or clarify AnchorSpec concepts such as Intent, Spec, Gap, Verify, Change Request, Freeze, or Thaw?
+      placeholder: "This clarifies the distinction between ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Suggested acceptance criteria
+      description: How should maintainers know this request is complete?
+      placeholder: |
+        - A reader can ...
+        - The page explains ...
+        - Build and lint pass.
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Optional. Mention any simpler or different approaches.
+    validations:
+      required: false
+
+  - type: textarea
+    id: japanese
+    attributes:
+      label: Japanese notes / 日本語補足
+      description: Optional. You may add Japanese context here.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Links, mockups, examples, related issues, or references.
+    validations:
+      required: false

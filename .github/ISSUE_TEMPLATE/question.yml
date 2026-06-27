@@ -1,0 +1,71 @@
+name: Question
+description: Ask a public question about AnchorSpec concepts, usage, or interpretation.
+title: "[Question]: "
+labels: ["question", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for public questions that may help other readers.
+
+        Please do not include confidential project details, personal data, or requests for case-specific legal judgment. For private or sensitive inquiries, use the contact page.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: What would you like to understand?
+      placeholder: "How should AnchorSpec handle ..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic
+      description: Which topic is closest?
+      options:
+        - Core concepts
+        - Intent / Spec / Gap
+        - Verify / ImplGap
+        - Change Request
+        - Freeze / Thaw
+        - Governance or responsibility boundaries
+        - Adoption or workflow
+        - Website or documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What are you trying to do, decide, or explain?
+      placeholder: "I am trying to apply AnchorSpec to ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_read
+    attributes:
+      label: What have you already read or tried?
+      description: Optional. Link to pages, sections, examples, or related discussions.
+    validations:
+      required: false
+
+  - type: textarea
+    id: desired_answer
+    attributes:
+      label: Desired answer format
+      description: Optional. For example, conceptual explanation, example, documentation change, or decision guidance.
+    validations:
+      required: false
+
+  - type: textarea
+    id: japanese
+    attributes:
+      label: Japanese notes / 日本語補足
+      description: Optional. You may ask or add context in Japanese here.
+    validations:
+      required: false
