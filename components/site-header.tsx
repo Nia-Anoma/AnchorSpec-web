@@ -10,6 +10,7 @@ const navigation = [
   { label: "概要", href: "/about" },
   { label: "仕様", href: "/docs" },
   { label: "変更履歴", href: "/changelog" },
+  { label: "Contact / お問い合わせ", href: "/contact" },
   { label: "GitHub", href: GITHUB_URL, external: true },
   { label: "ギャラリー", href: "/gallery" },
 ] as const;
